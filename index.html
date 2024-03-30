@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Information</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: aquamarine;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h1 {
+        text-align: center;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Student Information</h1>
+    <input type="text" id="nameInput" placeholder="Name">
+    <input type="date" id="dobInput" placeholder="Date of Birth">
+    <input type="number" id="ageInput" placeholder="Age">
+    <input type="text" id="deptInput" placeholder="Department">
+    <input type="text" id="collegeInput" placeholder="College">
+    <button onclick="addStudent()">Add</button>
+    <ul id="studentList">
+    </ul>
+</div>
+
+<script>
+    function addStudent() {
+        var nameInput = document.getElementById("nameInput");
+        var dobInput = document.getElementById("dobInput");
+        var ageInput = document.getElementById("ageInput");
+        var deptInput = document.getElementById("deptInput");
+        var collegeInput = document.getElementById("collegeInput");
+        var studentList = document.getElementById("studentList");
+
+        if (nameInput.value === "" || dobInput.value === "" || ageInput.value === "" || deptInput.value === "" || collegeInput.value === "") {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        var li = document.createElement("li");
+        li.textContent = "Name: " + nameInput.value + " | DOB: " + dobInput.value + " | Age: " + ageInput.value + " | Department: " + deptInput.value + " | College: " + collegeInput.value;
+
+        studentList.appendChild(li);
+
+        
+        nameInput.value = "";
+        dobInput.value = "";
+        ageInput.value = "";
+        deptInput.value = "";
+        collegeInput.value = "";
+    }
+</script>
+
+</body>
+</html>
